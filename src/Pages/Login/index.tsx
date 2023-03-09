@@ -15,6 +15,10 @@ export default function Login () {
   const handleLogin = (e:FormEvent) => {
     e.preventDefault()
 
+    if(email === '' || password === ''){
+      return setError('Preencha todos os campos')
+    }
+
     const login = auth.login(email, password)
 
     if(login!){

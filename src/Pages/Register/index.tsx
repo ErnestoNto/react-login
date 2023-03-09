@@ -14,6 +14,10 @@ export default function Register () {
   const handleRegister = (e:FormEvent) => {
     e.preventDefault()
 
+    if(email === '' || password === ''){
+      return setError('Preencha todos os campos')
+    }
+
     const register = auth.register(email, password)
 
     if(register!){
